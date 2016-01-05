@@ -228,8 +228,7 @@ will be migrated to **Data Structures** when a bug relating to definition of typ
     + emails (array) - email addresses from communications
         + `example@example.com`
     + locations (array[IndividualLocation]) - locations for this contact
-    + addresses (array[Venue]) - addresses of locations
-    + roles
+    + roles (array[Role]) - roles of the individual
     + attributes
     + household
     + family
@@ -419,4 +418,57 @@ will be migrated to **Data Structures** when a bug relating to definition of typ
         + N
     + comments - comments
     + sourceSystem: Regent - source of this record
-    + organisation
+    + organisation (Organisation) - organisation for this role
+    
+## Organisation [/fake5]
++ Attributes
+    + id: 1234 - organisation ID
+    + type (enum) - organisation type
+        + `Alpha Ministry`
+        + `Alpha Region`
+        + `Alpha Related Ministry`
+        + `Alpha Team`
+        + `Alpha Weekend Venue`
+        + `BookShop`
+        + `Catholic Community`
+        + `Chaplaincy Post`
+        + `Charity`
+        + `Charity Organisation`
+        + `Christian Charity`
+        + `Church`
+        + `City Alpha Office`
+        + `College`
+        + `Committee`
+        + `Company`
+        + `Global Region`
+        + `Government organisation`
+        + `Military Location`
+        + `Mission Organisation`
+        + `National Alpha Office`
+        + `Non NAO Country`
+        + `Other`
+        + `Press`
+        + `Prison Organisation`
+        + `Regional Alpha Office`
+        + `Resource Supplier`
+        + `School`
+        + `Student Organisation`
+        + `THIS IS NOT A COMPANY - LEGACY DONATION`
+        + `Trust/Foundation`
+        + `University`
+        + `Venue`
+        + `Workplace Fellowships`
+    + companyName: `Example plc` - company name
+    + status (enum) - status
+        + Active
+        + Inactive
+    + contactName: `John Doe` - contact name
+    + sourceSystem: Regent - source of record
+    + recordInRe: `2016-01-01T00:00:00+0000`
+    + communications
+    + locations
+    + attributes
+    + parent
+    + coursePrefix
+    
+    
