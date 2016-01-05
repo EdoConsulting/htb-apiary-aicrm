@@ -1,10 +1,9 @@
 FORMAT: 1A
-HOST: https://regent-api.alpha.org
+HOST: https://regent-api.alpha.org/2
 
 # CRM (v2)
-**This document is currently a work in progress.**
 
-A more modern API for interacting with Regent CRM.
+This API provides access to functions of Regent CRM.
 
 ## Authentication
 
@@ -14,7 +13,7 @@ Make sure they have the _ACS_ permission if they are making changes to other ind
 
 # Group Me
 
-## Me [/2/me]
+## Me [/me]
 
 Manage an individual's attributes
 
@@ -63,7 +62,7 @@ Manage an individual's attributes
 
 # Group Attributes
 
-## Attributes [/2/individuals/{individualId}/attributes]
+## Attributes [/individuals/{individualId}/attributes]
 
 Manage an individual's attributes
 
@@ -114,7 +113,7 @@ Manage an individual's attributes
 
             {"attribute":{"id":5,"lookupFullDesc":"Do not E-mail","lookupTypeDesc":"Privacy","detail":"Do not email this individual","sourceSystem":"Regent"}}
 
-## An attribute [/2/individuals/{individualId}/attributes/{attributeId}]
+## An attribute [/individuals/{individualId}/attributes/{attributeId}]
 
 Actions to take against an individuals attribute
 
