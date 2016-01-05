@@ -16,98 +16,8 @@ Make sure they have the _ACS_ permission if they are making changes to other ind
 ## Me [/me]
 
 Manage an individual's attributes. 
-+ Attributes
-    + id: 123 (number) - individual ID
-    + username: alphasample - OAuth user name
-    + householdName - household name
-    + householdPosition (enum) - household position
-        + Head
-        + Spouse
-        + Child
-        + Other
-    + prefix - their prefix
-    + title: Ms - title
-    + firstName: Jane - first name
-    + middleName: Susan - middle name
-    + lastName: Doe - surname
-    + initials - initials
-    + knownAs - name they are known by
-    + suffix - suffix
-    + gender (enum) - gender
-        + M
-        + F
-    + dateOfBirth: `1987-08-25T00:00:00+0000` - date of birth
-    + type (enum) - contact type
-        + `Child`
-        + `Child/Yth`
-        + `Divorced`
-        + `Married`
-        + `Other`
-        + `Separated`
-        + `Single`
-        + `Unknown`
-        + `Widowed`
-    + individualStatus (enum) - status
-        + `Active`
-        + `Active - HTB Member`
-        + `Attendee`
-        + `Child of Member`
-        + `Contributor Only`
-        + `Deceased`
-        + `Event Attendee`
-        + `Event Prospect`
-        + `Home Focus Attendee`
-        + `Inactive`
-        + `Member`
-        + `Merge Candiate`
-        + `Moved away`
-        + `New Checkin`
-        + `New From Small Group`
-        + `New from Website`
-        + `Organisation`
-        + `Past Giver`
-        + `Retired`
-        + `RTS-Inactive`
-        + `The Trust Member`
-        + `Visiting Church`
-    + statusDate: `2016-01-01T00:00:00+0000` - when status was set
-    + honours - any honours
-    + salutation - salutation
-    + labelName - label name
-    + locale: en - locale
-    + firstRecord: `2016-01-01T00:00:00+0000` - first record date
-    + sourceSystem: Regent - source of the record
-    + comments - any comments
-    + recordInRe: `2016-01-01T00:00:00+0000`
-    + communications (array) - means of communication
-        + type (enum)
-            + `Alternate Email`
-            + `Alternate Phone`
-            + `Email`
-            + `Facebook`
-            + `Fax`
-            + `Home Email`
-            + `Home Phone`
-            + `Infellowship Login`
-            + `Mobile Phone`
-            + `Other Email`
-            + `Other Phone`
-            + `Skype Username`
-            + `Twitter`
-            + `Web Address`
-            + `Work Email`
-            + `Work Phone`
-        + value: `example@example.com`
-    + emails (array) - email addresses from communications
-        + `example@example.com`
-    + locations (array) - locations for this contact
-        
-    + addresses
-    + roles
-    + attributes
-    + household
-    + family
-    
++ Attributes (Individual)
+
 
 ### Me [GET]
 
@@ -223,10 +133,122 @@ will be migrated to **Data Structures** when a bug relating to definition of typ
         + `Mail Returned / Incorrect`
         + `Statement`
         + `Org`
-    + validFrom
-    + validTo
-    + mainLocation
-    + sourceSystem
-    + individual
-    + venue
+    + validFrom - valid from date
+    + validTo - valid to date
+    + mainLocation (enum) - is this the main location?
+        + Y
+        + N
+    + sourceSystem: Regent - source of this record
+    + venue (Venue) - the address of this location
+    + household (number)
+
+## Individual [/fake2]
++ Attributes
+    + id: 123 (number) - individual ID
+    + username: alphasample - OAuth user name
+    + householdName - household name
+    + householdPosition (enum) - household position
+        + Head
+        + Spouse
+        + Child
+        + Other
+    + prefix - their prefix
+    + title: Ms - title
+    + firstName: Jane - first name
+    + middleName: Susan - middle name
+    + lastName: Doe - surname
+    + initials - initials
+    + knownAs - name they are known by
+    + suffix - suffix
+    + gender (enum) - gender
+        + M
+        + F
+    + dateOfBirth: `1987-08-25T00:00:00+0000` - date of birth
+    + type (enum) - contact type
+        + `Child`
+        + `Child/Yth`
+        + `Divorced`
+        + `Married`
+        + `Other`
+        + `Separated`
+        + `Single`
+        + `Unknown`
+        + `Widowed`
+    + individualStatus (enum) - status
+        + `Active`
+        + `Active - HTB Member`
+        + `Attendee`
+        + `Child of Member`
+        + `Contributor Only`
+        + `Deceased`
+        + `Event Attendee`
+        + `Event Prospect`
+        + `Home Focus Attendee`
+        + `Inactive`
+        + `Member`
+        + `Merge Candiate`
+        + `Moved away`
+        + `New Checkin`
+        + `New From Small Group`
+        + `New from Website`
+        + `Organisation`
+        + `Past Giver`
+        + `Retired`
+        + `RTS-Inactive`
+        + `The Trust Member`
+        + `Visiting Church`
+    + statusDate: `2016-01-01T00:00:00+0000` - when status was set
+    + honours - any honours
+    + salutation - salutation
+    + labelName - label name
+    + locale: en - locale
+    + firstRecord: `2016-01-01T00:00:00+0000` - first record date
+    + sourceSystem: Regent - source of the record
+    + comments - any comments
+    + recordInRe: `2016-01-01T00:00:00+0000`
+    + communications (array) - means of communication
+        + type (enum)
+            + `Alternate Email`
+            + `Alternate Phone`
+            + `Email`
+            + `Facebook`
+            + `Fax`
+            + `Home Email`
+            + `Home Phone`
+            + `Infellowship Login`
+            + `Mobile Phone`
+            + `Other Email`
+            + `Other Phone`
+            + `Skype Username`
+            + `Twitter`
+            + `Web Address`
+            + `Work Email`
+            + `Work Phone`
+        + value: `example@example.com`
+    + emails (array) - email addresses from communications
+        + `example@example.com`
+    + locations (array[IndividualLocation]) - locations for this contact
+    + addresses (array[Venue]) - addresses of locations
+    + roles
+    + attributes
     + household
+    + family
+
+## Venue [/fake3]
++ Attributes
+    + id: 123 (number) - individual ID
+    + name: `Example Buildings` - location name
+    + address1: `22 Instance Place" - 1st line of address
+    + address2 - 2nd line of address
+    + address3 - 3rd line of address
+    + town: Sampleton - town/city
+    + county: Sampleshire - county/state
+    + postcode: `SS99 1SS` - postcode/zip
+    + country: `United Kingdom` - country
+    + countryCode: GB - country code
+    + addressComment - comment
+    + sourceSystem: Regent - source of this record
+    + inCourses: true (boolean) 
+    + latitude: `51.5072` (number) - latitude of venue
+    + longitude: `-0.1275` (number) - longitude of venue
+    + distance: 20 (number) - distance in kilometers when subject of a query with respect to coordinates
