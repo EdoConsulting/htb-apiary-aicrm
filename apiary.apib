@@ -1,0 +1,137 @@
+FORMAT: 1A
+HOST: https://regent-api.alpha.org
+
+# CRM (v2)
+**This document is currently a work in progress.**
+
+A more modern API for interacting with Regent CRM.
+
+## Authentication
+
+You will need to use a user's access token when making requests to any non-public endpoint.
+
+Make sure they have the _ACS_ permission if they are making changes to other individuals apart from themselves.
+
+# Group Me
+
+## Me [/2/me]
+
+Manage an individual's attributes
+
+### Me [GET]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {access_token}
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {"individual":{"id": 1, "primaryEmail":"jordan@cultivate4.com","primaryAddress":{"addressLine1":null,"addressLine2":null,"name":null,"county":"Greater London","postcode":null,"countryCode":"GB","latitude":null,"longitude":null},"unsubscribed":true,"firstName":"Jordan","lastName":"de Laune","gender":"M","dateOfBirth":"1987-08-25T00:00:00+0000","locale":null,"sourceSystem":"1"}}
+
+
+### Update me [PUT]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {access_token}
+
+    + Body
+
+            {"firstName":"Jordan","lastName":"de Laune","gender":"M","dateOfBirth":"1987-08-25T00:00:00+0000","address":{"county":"Greater London","country":"GB"},"email":"jordan@cultivate4.com","unsubscribed":true}
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {"individual":{"id": 1, "primaryEmail":"jordan@cultivate4.com","primaryAddress":{"addressLine1":null,"addressLine2":null,"name":null,"county":"Greater London","postcode":null,"countryCode":"GB","latitude":null,"longitude":null},"unsubscribed":true,"firstName":"Jordan","lastName":"de Laune","gender":"M","dateOfBirth":"1987-08-25T00:00:00+0000","locale":null,"sourceSystem":"1"}}
+
+# Group Attributes
+
+## Attributes [/2/individuals/{individualId}/attributes]
+
+Manage an individual's attributes
+
+### List all an individual's attributes [GET]
+
++ Parameters
+    + individualId (required, integer, `1`) ... Id of an individual
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {access_token}
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {"attributes":[{"id":4,"lookupFullDesc":"Do not E-mail","lookupTypeDesc":"Privacy","detail":null,"sourceSystem":"Regent"}]}
+
+
+### Add an attribute [POST]
+
++ Parameters
+    + individualId (required, integer, `1`) ... Id of an individual
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {access_token}
+
+    + Body
+
+            {"lookupTypeDesc":"Privacy","lookupFullDesc":"Do not E-mail","detail":"Do not email this individual"}
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {"attribute":{"id":5,"lookupFullDesc":"Do not E-mail","lookupTypeDesc":"Privacy","detail":"Do not email this individual","sourceSystem":"Regent"}}
+
+## An attribute [/2/individuals/{individualId}/attributes/{attributeId}]
+
+Actions to take against an individuals attribute
+
+### Remove an attribute [DELETE]
+
++ Parameters
+    + individualId (required, integer, `1`) ... Id of an individual
+    + attributeId (required, integer, `1`) ... Id of an attribute
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {access_token}
+
++ Response 204 (text/html; charset=UTF-8)
+
+    + Headers
+
+            Accept: application/json
