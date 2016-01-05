@@ -15,7 +15,99 @@ Make sure they have the _ACS_ permission if they are making changes to other ind
 
 ## Me [/me]
 
-Manage an individual's attributes
+Manage an individual's attributes. 
++ Attributes
+    + id: 123 (number) - individual ID
+    + username: alphasample - OAuth user name
+    + householdName - household name
+    + householdPosition (enum) - household position
+        + Head
+        + Spouse
+        + Child
+        + Other
+    + prefix - their prefix
+    + title: Ms - title
+    + firstName: Jane - first name
+    + middleName: Susan - middle name
+    + lastName: Doe - surname
+    + initials - initials
+    + knownAs - name they are known by
+    + suffix - suffix
+    + gender (enum) - gender
+        + M
+        + F
+    + dateOfBirth: `1987-08-25T00:00:00+0000` - date of birth
+    + type (enum) - contact type
+        + `Child`
+        + `Child/Yth`
+        + `Divorced`
+        + `Married`
+        + `Other`
+        + `Separated`
+        + `Single`
+        + `Unknown`
+        + `Widowed`
+    + individualStatus (enum) - status
+        + `Active`
+        + `Active - HTB Member`
+        + `Attendee`
+        + `Child of Member`
+        + `Contributor Only`
+        + `Deceased`
+        + `Event Attendee`
+        + `Event Prospect`
+        + `Home Focus Attendee`
+        + `Inactive`
+        + `Member`
+        + `Merge Candiate`
+        + `Moved away`
+        + `New Checkin`
+        + `New From Small Group`
+        + `New from Website`
+        + `Organisation`
+        + `Past Giver`
+        + `Retired`
+        + `RTS-Inactive`
+        + `The Trust Member`
+        + `Visiting Church`
+    + statusDate: `2016-01-01T00:00:00+0000` - when status was set
+    + honours - any honours
+    + salutation - salutation
+    + labelName - label name
+    + locale: en - locale
+    + firstRecord: `2016-01-01T00:00:00+0000` - first record date
+    + sourceSystem: Regent - source of the record
+    + comments - any comments
+    + recordInRe: `2016-01-01T00:00:00+0000`
+    + communications (array) - means of communication
+        + type (enum)
+            + `Alternate Email`
+            + `Alternate Phone`
+            + `Email`
+            + `Facebook`
+            + `Fax`
+            + `Home Email`
+            + `Home Phone`
+            + `Infellowship Login`
+            + `Mobile Phone`
+            + `Other Email`
+            + `Other Phone`
+            + `Skype Username`
+            + `Twitter`
+            + `Web Address`
+            + `Work Email`
+            + `Work Phone`
+        + value: `example@example.com`
+    + emails (array) - email addresses from communications
+        + `example@example.com`
+    + locations (array) - locations for this contact
+        
+    + addresses
+    + roles
+    + attributes
+    + household
+    + family
+    
 
 ### Me [GET]
 
@@ -27,10 +119,6 @@ Manage an individual's attributes
 
 
 + Response 200 (application/json)
-
-    + Headers
-
-            Accept: application/json
 
     + Body
 
@@ -52,9 +140,6 @@ Manage an individual's attributes
 
 + Response 200 (application/json)
 
-    + Headers
-
-            Accept: application/json
 
     + Body
 
@@ -79,10 +164,6 @@ Manage an individual's attributes
 
 + Response 200 (application/json)
 
-    + Headers
-
-            Accept: application/json
-
     + Body
 
             {"attributes":[{"id":4,"lookupFullDesc":"Do not E-mail","lookupTypeDesc":"Privacy","detail":null,"sourceSystem":"Regent"}]}
@@ -105,9 +186,6 @@ Manage an individual's attributes
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Accept: application/json
 
     + Body
 
@@ -129,8 +207,26 @@ Actions to take against an individuals attribute
 
             Authorization: Bearer {access_token}
 
-+ Response 204 (text/html; charset=UTF-8)
++ Response 204 (application/json)
 
-    + Headers
-
-            Accept: application/json
+# Group Common Data
+Common data structures used in requests and responses are defined here. This section
+will be migrated to **Data Structures** when a bug relating to definition of types is fixed.
+## IndividualLocation [/fake1]
++ Attributes
+    + id: 1234 (number) - location ID
+    + type (enum) - address type
+        + `Previous`
+        + `Primary`
+        + `Secondary`
+        + `Business`
+        + `Mail Returned / Incorrect`
+        + `Statement`
+        + `Org`
+    + validFrom
+    + validTo
+    + mainLocation
+    + sourceSystem
+    + individual
+    + venue
+    + household
